@@ -22,16 +22,24 @@ with open('TotalPrivateEmployment-data.csv', mode='r') as csv_file:
 
 President_file = open('Presidents.txt','r')
 president=[]
-parties=[]
-for line in President_file:
-    tmp_list = line.split("\n")
-    president = tmp_list[0]
-    parties = tmp_list[1:]
-    Slice=tmp_list[2:]
-    for each in Slice:
-        tmp_list.append(each)
-    print(tmp_list)
+party=[]
+termServed=[]
+totalDemocrats = 0
+with open("Presidents.txt", "r") as President_file:
+    csv_reader = csv.reader(President_file, delimiter=',')
+    for line in csv_reader:
+      print(line[1])
+      president = line[0]
+      party = line[1]
+      termServed = line[2:]
+      if party == 'Democrat':
+          totalDemocrats += 1
+      print(president, "is a ", party, ".")
+      print("Years served are ", termServed)
+      print(len(termServed), "years served.")
+    print("There are", totalDemocrats, "total democrats.")
         
+
 President_file.close()
 
 
