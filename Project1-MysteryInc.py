@@ -28,15 +28,13 @@ totalDemocrats = 0
 with open("Presidents.txt", "r") as President_file:
     csv_reader = csv.reader(President_file, delimiter=',')
     for line in csv_reader:
-      print(line[1])
       president = line[0]
       party = line[1]
       termServed = line[2:]
       if party == 'Democrat':
           totalDemocrats += 1
-      print(president, "is a ", party, ".")
-      print("Years served are ", termServed)
-      print(len(termServed), "years served.")
+      print(president, "is a", party, "and served", len(termServed), "years.")
+      print("Years served are", termServed)
     print("There are", totalDemocrats, "total democrats.")
         
 
